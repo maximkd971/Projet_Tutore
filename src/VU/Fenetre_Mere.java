@@ -1,6 +1,9 @@
-package V1;
+package VU;
 
 import javax.swing.*;
+
+import Modele.Constantes;
+
 import java.awt.*;
  
 public class Fenetre_Mere extends JFrame
@@ -11,6 +14,7 @@ public class Fenetre_Mere extends JFrame
 	contentPane.setBackground(new Color(100,200,240));
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setVisible(true);setLocation(10,10);setSize(1200,800);
+    
     JMenuBar menuBar= new JMenuBar();
     this.setJMenuBar(menuBar);
     JMenu menuCréation = new JMenu("Création");
@@ -33,7 +37,10 @@ public class Fenetre_Mere extends JFrame
     	JMenuItem menu = new JMenuItem(Constantes.Afficher[i]);
     	menuAfficher.add(menu);
     }
-    menuQuitter.addActionListener(contentPane);
+    JMenuItem Quitter = new JMenuItem("Quitter");
+    menuQuitter.add(Quitter);
+    Quitter.addActionListener(contentPane);
+    Quitter.setActionCommand("kk");
     menuBar.add(menuCréation);
     menuBar.add(menuAfficher);
     menuBar.add(menuQuitter);
