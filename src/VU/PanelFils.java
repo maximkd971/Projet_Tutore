@@ -10,10 +10,10 @@ public class PanelFils extends JPanel implements ActionListener {
 	
 		PanelEvenement panEvt = new PanelEvenement();
 		
-		GridLayout layout = new GridLayout(2,10,2,2);
+		BorderLayout layout = new BorderLayout();
 		public PanelFils(){
 			this.setLayout(layout);
-			this.add(panEvt);
+			this.add(panEvt,BorderLayout.SOUTH);
 			
 	}
 
@@ -23,6 +23,15 @@ public class PanelFils extends JPanel implements ActionListener {
 		if (actionCommand.equals("kk"))
 		{
 			int saisi = JOptionPane.showConfirmDialog(this,"Êtes_vous sur de vouloir quitter ?", "QUITTER",JOptionPane.OK_CANCEL_OPTION,JOptionPane.CANCEL_OPTION, null);
+			switch(saisi)
+			{
+			case JOptionPane.CLOSED_OPTION:
+					break;
+			case JOptionPane.OK_OPTION:
+					System.exit(0);break;
+			case JOptionPane.CANCEL_OPTION:
+					break;
+			}
 		}
 		
 	}
