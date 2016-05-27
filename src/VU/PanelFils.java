@@ -8,14 +8,14 @@ import java.awt.event.ActionListener;
 public class PanelFils extends JPanel implements ActionListener {
 
 	
-		PanelEvenement panEvt = new PanelEvenement();
-		
+		PanelAffiche panEvt = new PanelAffiche();
+		//PanelFormulaireEvt panForm = new PanelFormulaireEvt();
 		BorderLayout layout = new BorderLayout();
 		public PanelFils(){
 			this.setLayout(layout);
-			this.add(panEvt,BorderLayout.SOUTH);
-			
-	}
+			this.add(panEvt,BorderLayout.CENTER);
+			//this.add(panForm, BorderLayout.NORTH);
+		}
 
 	@Override
 	public void actionPerformed(ActionEvent parEvt) {
@@ -33,8 +33,14 @@ public class PanelFils extends JPanel implements ActionListener {
 					break;
 			}
 		}
+		if (actionCommand.equals("ajout"))
+		{
+			PanelFormulaireEvt panForm = new PanelFormulaireEvt();
+			this.add(panForm,BorderLayout.NORTH);
+
+		}
 		
 	}
 		
-	
+		
 }
