@@ -13,7 +13,7 @@ public class Fenetre_Mere extends JFrame
     PanelFils contentPane=new PanelFils();
 	setContentPane(contentPane);
 	contentPane.setBackground(new Color(100,200,240));
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);setLocation(10,10);setSize(1200,800);
     
     JMenuBar menuBar= new JMenuBar();

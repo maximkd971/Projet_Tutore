@@ -1,6 +1,9 @@
 package VU;
 
 import javax.swing.*;
+
+import Modele.PanelFormulaireEvt;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,11 +36,10 @@ public class PanelFils extends JPanel implements ActionListener {
 					break;
 			}
 		}
-		if (actionCommand.equals("ajout"))
+		if (actionCommand.equals("Ajout"))
 		{
 			PanelFormulaireEvt panForm = new PanelFormulaireEvt();
-			this.add(panForm,BorderLayout.NORTH);
-
+			
 		}
 		
 	}

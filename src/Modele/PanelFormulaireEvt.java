@@ -1,15 +1,14 @@
-package VU;
+package Modele;
 import javax.swing.*;
 
-import Modele.Agenda;
-
 import java.io.*;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.*;
 
-public class PanelFormulaireEvt extends JPanel implements Serializable{
+public class PanelFormulaireEvt extends JDialog implements Serializable{
 	private static final long serialVersionUID = 1L;
 	static JLabel labelDate;
 	
@@ -38,17 +37,26 @@ public class PanelFormulaireEvt extends JPanel implements Serializable{
 	private JComboBox minutesFin = new JComboBox(minutes);
 	private JButton ajout = new JButton ("+");
 	public static Agenda agenda = new Agenda();
+	static Date date =new Date();
 	public PanelFormulaireEvt()
 	{
-		
+	this.setBackground(new Color(100,200,240));
+	//this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	this.setVisible(true);this.setSize(600,400);
+	this.setTitle("ajouter un évènement"); 
+	this.setLocationRelativeTo(null);//à modifier
+	this.setResizable(false); // pas redimentionnable
+	this.setVisible(true);
+	this.setLayout(new GridBagLayout());
+	
 	this.setLayout(new GridBagLayout());
 	GridBagConstraints contrainte = new GridBagConstraints();
 	contrainte.insets = new Insets(10,10,10,10);
 	contrainte.fill = GridBagConstraints.BOTH;
-	contrainte.gridx = 4;	// 1e rang, date + btn+
-	contrainte.gridy = -5;
+	contrainte.gridx = 0;	// 1e rang, date + btn+
+	contrainte.gridy = 0;
 	contrainte.gridwidth = 2;
-	labelDate = new JLabel();
+	labelDate = new JLabel(date.toString());
 	add(labelDate,contrainte);
 	contrainte.gridwidth = 1;
 	contrainte.gridx = 3;
@@ -124,6 +132,15 @@ public class PanelFormulaireEvt extends JPanel implements Serializable{
 	contrainte.gridy = 6;
 	contrainte.gridwidth = 4;
 	add(scrollPane,contrainte);
+	
+	// zone affichage (4, 0)
+	contrainte.gridx = 4;
+	contrainte.gridy = 0;
+	contrainte.gridwidth = 1;
+	contrainte.gridheight = 7;
+	this.add(zoneAffichage,contrainte);
+	
+	//ajout.addActionListener(this);
 	//@Override
 	//public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
