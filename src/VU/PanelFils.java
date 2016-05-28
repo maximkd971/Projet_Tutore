@@ -38,8 +38,12 @@ public class PanelFils extends JPanel implements ActionListener {
 		}
 		if (actionCommand.equals("Ajout"))
 		{
-			PanelFormulaireEvt panForm = new PanelFormulaireEvt();
+			PanelFormulaireEvt panEvt = new PanelFormulaireEvt();
 			
+		}
+		if (actionCommand.equals("AjoutChrono"))
+		{
+			PanelFormulaireChrono panChrono = new PanelFormulaireChrono();
 		}
 		
 	}

@@ -32,7 +32,6 @@ public class PanelFormulaireEvt extends JDialog implements Serializable{
 	public PanelFormulaireEvt()
 	{
 	this.setBackground(new Color(100,200,240));
-	//this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	this.setVisible(true);this.setSize(400,500);
 	this.setTitle("ajouter un évènement"); 
 	this.setLocationRelativeTo(null);//à modifier
