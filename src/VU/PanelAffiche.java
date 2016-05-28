@@ -57,7 +57,7 @@ public class PanelAffiche extends JPanel
 //		
 //		if(parE.getSource()== ajout)
 //		{
-//			Evt evt = new Evt(date,zoneTitre.getText(),zoneLieu.getText(),(String)heureDebut.getSelectedItem(),(String)minutesDebut.getSelectedItem(),(String)heureFin.getSelectedItem(),(String)minutesFin.getSelectedItem());
+//			Evt evt = new Evt(date,zoneTitre.getText(),zoneLieu.getText());
 //			agenda.ajout(zoneTitre.getText(),evt);
 //			
 //			chTable.setModel(new ModeleTable());

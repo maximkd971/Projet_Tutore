@@ -20,7 +20,7 @@ public class Fenetre_Mere extends JFrame
     this.setJMenuBar(menuBar);
     JMenu menuCreation = new JMenu("Création");
     menuCreation.setMnemonic('C');
-    JMenu menuCreation2 = new JMenu("Modifier Sujet");
+    JMenu menuCreation2 = new JMenu("Modifier Evenement");
     JMenu menuAfficher = new JMenu("Afficher");
     menuAfficher.setMnemonic('A');
     JMenu menuQuitter = new JMenu("Quitter");
@@ -31,6 +31,10 @@ public class Fenetre_Mere extends JFrame
     menuCreation2.add(Ajouter);
     Ajouter.addActionListener(contentPane);
     Ajouter.setActionCommand("Ajout");
+    JMenuItem Modifier = new JMenuItem("Modifier un évènement");
+    menuCreation2.add(Modifier);
+    Modifier.addActionListener(contentPane);
+    Modifier.setActionCommand("MOodifier");
     for (int i=0; i<Constantes.Creation.length ; i++)
     {
     	JMenuItem menuC = new JMenuItem(Constantes.Creation[i]);
