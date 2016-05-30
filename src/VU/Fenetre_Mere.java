@@ -5,6 +5,7 @@ import javax.swing.*;
 import Modele.Constantes;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
  
 public class Fenetre_Mere extends JFrame
 {public Fenetre_Mere(String parTitre)
@@ -12,36 +13,65 @@ public class Fenetre_Mere extends JFrame
     PanelFils contentPane=new PanelFils();
 	setContentPane(contentPane);
 	contentPane.setBackground(new Color(100,200,240));
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);setLocation(10,10);setSize(1200,800);
     
     JMenuBar menuBar= new JMenuBar();
     this.setJMenuBar(menuBar);
-    JMenu menuCréation = new JMenu("Création");
-    menuCréation.setMnemonic('C');
+    
+    JMenu menuCreation = new JMenu("Création");
+    menuCreation.setMnemonic('C');
+    
+    JMenu menuCreation2 = new JMenu("Modifier Evenement");
+    
     JMenu menuAfficher = new JMenu("Afficher");
     menuAfficher.setMnemonic('A');
+    
     JMenu menuQuitter = new JMenu("Quitter");
     menuQuitter.setMnemonic('Q');
+    
     JMenu menuInt = new JMenu("?");
     menuInt.setMnemonic('?');
-    		
-    for (int i=0; i<Constantes.Creation.length ; i++)
-    {
-    	JMenuItem menu = new JMenuItem(Constantes.Creation[i]);
-    	menuCréation.add(menu);
-    	
-    }
+    
+    JMenuItem Ajouter = new JMenuItem("Ajouter un évènement");
+    menuCreation2.add(Ajouter);
+    Ajouter.addActionListener(contentPane);
+    Ajouter.setActionCommand("Ajout");
+    
+    JMenuItem Modifier = new JMenuItem("Modifier un évènement");
+    menuCreation2.add(Modifier);
+    Modifier.addActionListener(contentPane);
+    Modifier.setActionCommand("Modifier");
+    
+    JMenuItem AjoutChrono = new JMenuItem("Créer une Chronologie");
+    menuCreation.add(AjoutChrono);
+    AjoutChrono.addActionListener(contentPane);
+    AjoutChrono.setActionCommand("AjoutChrono");
+    
+    JMenuItem ModifierChrono = new JMenuItem("Modifier la Chonologie");
+    menuCreation.add(ModifierChrono);
+    ModifierChrono.addActionListener(contentPane);
+    ModifierChrono.setActionCommand("ModifChrono");
+    
+   
+   
     for(int i =0; i<Constantes.Afficher.length;i++)
     {
-    	JMenuItem menu = new JMenuItem(Constantes.Afficher[i]);
-    	menuAfficher.add(menu);
+    	JMenuItem menuA = new JMenuItem(Constantes.Afficher[i]);
+    	menuAfficher.add(menuA);
     }
+    for (int i=0; i<Constantes.Modif.length;i++)
+    {
+    	JMenuItem menuModif = new JMenuItem(Constantes.Modif[i]);
+    	
+    }
+    menuCreation.add(menuCreation2);
     JMenuItem Quitter = new JMenuItem("Quitter");
     menuQuitter.add(Quitter);
     Quitter.addActionListener(contentPane);
     Quitter.setActionCommand("kk");
-    menuBar.add(menuCréation);
+    Quitter.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK));
+    menuBar.add(menuCreation);
     menuBar.add(menuAfficher);
     menuBar.add(menuQuitter);
     menuBar.add(menuInt);
@@ -52,5 +82,6 @@ public class Fenetre_Mere extends JFrame
  
 public static void main(String[] args)
     {new Fenetre_Mere("Fenetre Mere");
+   
     }//main()
 }//FenetreMere
