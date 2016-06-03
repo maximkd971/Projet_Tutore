@@ -28,9 +28,9 @@ public class Fenetre_Mere extends JFrame
     JMenu menuAfficher = new JMenu("Afficher");
     menuAfficher.setMnemonic('A');
    
-    JMenuItem Affiche = new JMenuItem("Fichier Existant");
+    JMenu Affiche = new JMenu("Fichier Existant");
     menuAfficher.add(Affiche);
-    //Affiche.add(Bouton);
+    Affiche.add(Bouton);
     
    
     	

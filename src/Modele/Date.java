@@ -10,8 +10,8 @@ import java.util.GregorianCalendar;
 public class Date {
 	private int chJour;//declaration des champs
 	 int chMois;
- int chAn;
- int chJourSemaine;
+	 int chAn;
+	 int chJourSemaine;
 
  public Date(int parJour, int parMois, int parAn)
 	{

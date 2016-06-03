@@ -20,8 +20,8 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	//les zones de saisie ou d'affichage 
 	private JTextField zoneLieu = new JTextField(10);
 	private JTextField zoneTitre = new JTextField(10);
-	private JTextField zoneJour = new JTextField(2);
-	private JTextField zoneMois = new JTextField(2);
+	private JTextField zoneJour = new JTextField(1);
+	private JTextField zoneMois = new JTextField(1);
 	private JTextField zoneAnnee = new JTextField(4);
 	private JTextArea description = new JTextArea(10,10);
 	private JScrollPane scrollPane = new JScrollPane(description);
@@ -162,7 +162,7 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 			Date date = new Date(jour, mois, annee);
 			String Textdescription = description.getText();
 			String ch = chrono.getSelectedItem().toString();
-			Evt evenement = new Evt (date ,titre, lieu, cheminCourant, Textdescription, ch);
+			Frise evenement = new Frise (date ,titre, lieu, cheminCourant, Textdescription, ch);
 			this.setVisible(false);
 			zoneTitre.setText("");
 			zoneLieu.setText("");
