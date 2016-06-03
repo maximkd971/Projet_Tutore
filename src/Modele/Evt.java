@@ -1,4 +1,10 @@
 package Modele;
+
+import java.io.*;
+
+
+import javax.swing.ImageIcon;
+
 //import Vu.*;
 //import Fichier.*;
 
@@ -7,24 +13,22 @@ public class Evt
 	private Date chDate;
 	private String chTitre;
 	private String chLieu;
-	private String chHeureDebut;
-	private String chMinuteDebut;
-	private String chHeureFin;
-	private String chMinuteFin;
+	private String chImage;
+	private String chDescription;
+	private String nomFrise;
 	
-	public Evt (Date parDate,String parTitre,String parLieu,String parHeureDebut, String parMinuteDebut,String parHeureFin,String parMinuteFin )
+	public Evt (Date parDate,String parTitre,String parLieu, String parImage ,String parDescription , String parFrise)
 	{
 		chDate = parDate;
 		chTitre = parTitre;
 		chLieu = parLieu;
-		chHeureDebut = parHeureDebut;
-		chMinuteDebut = parMinuteDebut;
-		chHeureFin = parHeureFin;
-		chMinuteFin = parMinuteFin;
+		chImage = parImage;
+		chDescription = parDescription;
+		nomFrise= parFrise;
 	}
 	public String toString()
 	{
-		return(chDate.toString()+","+chTitre+","+chLieu+","+chHeureDebut+":"+chMinuteDebut+" - "+chHeureFin+":"+chMinuteFin);	// 02:30 - 03:15
+		return(chDate.toString()+","+chTitre+","+chLieu+","+chDescription + chImage);
 	}
 	
 	public void setTitre(String parTitre)
@@ -56,5 +60,33 @@ public class Evt
 			return chDate.precede(parEvt.chDate);		
 		}
 		return 0;
+	}
+	public void creeFichier(String parFichier){
+		File fichier = new File("./FichierChrono/"+parFichier+".txt");
+		if (fichier.exists())
+		{
+			try {
+				fichier.createNewFile();
+			}
+			catch(IOException e){
+				e.printStackTrace();
+			}
+			
+		}
+		
+		try (PrintWriter texte = new PrintWriter(new FileOutputStream(fichier , true)))
+		{
+		
+			texte.println(chDate);
+			texte.println(chTitre);
+			texte.println(chLieu);
+			texte.println(chImage);
+			texte.println(chDescription);
+			
+		}
+		catch(IOException e){
+			e.printStackTrace();
+			
+		}
 	}
 }

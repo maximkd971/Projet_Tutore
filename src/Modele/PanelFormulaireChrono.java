@@ -1,5 +1,6 @@
-package VU;
+package Modele;
 import javax.swing.*;
+import java.awt.event.*;
 
 import java.io.*;
 import java.awt.Color;
@@ -9,14 +10,14 @@ import java.awt.Insets;
 import java.awt.event.*;
 
 import javax.swing.*;
-public class PanelFormulaireChrono extends JDialog {
+public class PanelFormulaireChrono extends JDialog implements ActionListener{
 
 	private JLabel labelTitre; 
 	private JLabel labelAnneeDebut;
 	private JLabel labelAnneeFin;
-	private JTextField zoneTitre = new JTextField(10);
-	private JTextField AnneeDebut = new JTextField(10);
-	private JTextField AnneeFin = new JTextField(10);
+	private static JTextField zoneTitre = new JTextField(10);
+	private static  JTextField AnneeDebut = new JTextField(10);
+	private static JTextField AnneeFin = new JTextField(10);
 	private JButton Ajouter;
 	public PanelFormulaireChrono(){
 		
@@ -67,7 +68,23 @@ public class PanelFormulaireChrono extends JDialog {
 		contrainte.gridy = 4;
 		contrainte.gridwidth = 4;
 		add(Ajouter,contrainte);
-		
+		Ajouter.addActionListener(this);
 	}
+	@Override
+	public void actionPerformed(ActionEvent parEvt) {
+		// TODO Auto-generated method stub
+		if (parEvt.getSource()==Ajouter)
+		{
+			String titre = zoneTitre.getText();
+			int anneeDebut = Integer.parseInt(AnneeDebut.getText());
+			int anneeFin = Integer.parseInt(AnneeFin.getText());
+			new Frise (titre,anneeDebut,anneeFin);
+			this.setVisible(false);
+			zoneTitre.setText("");
+			AnneeDebut.setText("");
+			AnneeFin.setText("");
+		}
+	}
+	
 	
 }

@@ -14,8 +14,9 @@ public class Fenetre_Mere extends JFrame
 	setContentPane(contentPane);
 	contentPane.setBackground(new Color(100,200,240));
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setVisible(true);setLocation(10,10);setSize(1200,800);
-    
+    setLocation(10,10);setSize(1200,800);
+    String[]nomFichier = Constantes.ListeFichier();
+    JComboBox <String> Bouton =new JComboBox<String>(nomFichier);
     JMenuBar menuBar= new JMenuBar();
     this.setJMenuBar(menuBar);
     
@@ -26,6 +27,16 @@ public class Fenetre_Mere extends JFrame
     
     JMenu menuAfficher = new JMenu("Afficher");
     menuAfficher.setMnemonic('A');
+   
+    JMenuItem Affiche = new JMenuItem("Fichier Existant");
+    menuAfficher.add(Affiche);
+    //Affiche.add(Bouton);
+    
+   
+    	
+    
+   
+  
     
     JMenu menuQuitter = new JMenu("Quitter");
     menuQuitter.setMnemonic('Q');
@@ -53,18 +64,12 @@ public class Fenetre_Mere extends JFrame
     ModifierChrono.addActionListener(contentPane);
     ModifierChrono.setActionCommand("ModifChrono");
     
-   
-   
-    for(int i =0; i<Constantes.Afficher.length;i++)
-    {
-    	JMenuItem menuA = new JMenuItem(Constantes.Afficher[i]);
-    	menuAfficher.add(menuA);
-    }
     for (int i=0; i<Constantes.Modif.length;i++)
     {
     	JMenuItem menuModif = new JMenuItem(Constantes.Modif[i]);
     	
     }
+    
     menuCreation.add(menuCreation2);
     JMenuItem Quitter = new JMenuItem("Quitter");
     menuQuitter.add(Quitter);
@@ -75,7 +80,8 @@ public class Fenetre_Mere extends JFrame
     menuBar.add(menuAfficher);
     menuBar.add(menuQuitter);
     menuBar.add(menuInt);
-  
+    
+    setVisible(true);
     
     }
  

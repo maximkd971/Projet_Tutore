@@ -13,12 +13,12 @@ public class Date {
  int chAn;
  int chJourSemaine;
 
- public Date(int parJour, int parMois, int parAn, int parJourSemaine)
+ public Date(int parJour, int parMois, int parAn)
 	{
 	    chJour=parJour;
 	    chMois=parMois;
 	    chAn=parAn;
-	    chJourSemaine = parJourSemaine;		
+	  
 	}
 
 	public String toString()

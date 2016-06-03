@@ -15,9 +15,8 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	private JLabel labelDebut;
 	private JLabel labelFin;
 	private JLabel labelDescription;
-	private JLabel separation = new JLabel(":");
-	private JLabel separation1 = new JLabel(":");
-	
+	private JLabel labelChoix;
+	private String cheminTest;
 	//les zones de saisie ou d'affichage 
 	private JTextField zoneLieu = new JTextField(10);
 	private JTextField zoneTitre = new JTextField(10);
@@ -26,9 +25,13 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	private JTextField zoneAnnee = new JTextField(4);
 	private JTextArea description = new JTextArea(10,10);
 	private JScrollPane scrollPane = new JScrollPane(description);
-	private JButton ajoutImg = new JButton ("+");
+	private JButton ajoutImg = new JButton ("Image");
+	private JButton ajoutEvt = new JButton ("+");
 	public static Agenda agenda = new Agenda();
 	static Date date =new Date();
+	String[]nomFichier = Constantes.ListeFichier();
+	private JComboBox <String> chrono = new JComboBox <String> (nomFichier);
+	private String cheminCourant;
 	
 	
 	public PanelFormulaireEvt()
@@ -40,62 +43,77 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	this.setResizable(false); // pas redimentionnable
 	this.setVisible(true);
 	this.setLayout(new GridBagLayout());
-	
-	this.setLayout(new GridBagLayout());
 	GridBagConstraints contrainte = new GridBagConstraints();
 	contrainte.insets = new Insets(10,10,10,10);
 	contrainte.fill = GridBagConstraints.BOTH;
 	
-	contrainte.gridx = 0;	// 1e rang, date + btn+
+	contrainte.gridx = 3;	// 1e rang
 	contrainte.gridy = 0;
+	contrainte.gridwidth=2;
+	add(chrono,contrainte);
+	labelChoix = new JLabel("Choisir la chonologie :");
+	contrainte.gridx=0;
+	contrainte.gridy=0;
+	contrainte.gridwidth=1;
+	add(labelChoix , contrainte);
+	
+	
+	contrainte.gridx = 0;	//2eme rang
+	contrainte.gridy = 1;
 	contrainte.gridwidth = 1;
 	add(zoneJour,contrainte);
-	contrainte.gridx = 2;	// 1e rang, date + btn+
-	contrainte.gridy = 0;
+	contrainte.gridx = 1;	
+	contrainte.gridy = 1;
 	contrainte.gridwidth = 1;
 	add(zoneMois,contrainte);
-	contrainte.gridx = 3;	// 1e rang, date + btn+
-	contrainte.gridy = 0;
+	contrainte.gridx = 2;	
+	contrainte.gridy = 1;
 	contrainte.gridwidth = 2;
 	add(zoneAnnee,contrainte);
 	contrainte.gridwidth = 1;
-	contrainte.gridx = 5;
+	contrainte.gridx = 4;
 	add(ajoutImg,contrainte);
 	
-	// 2e rang : Titre
-	labelTitre = new JLabel("Titre");
+	// 3e rang : Titre
+	labelTitre = new JLabel("Titre :");
 	contrainte.gridx = 0;
-	contrainte.gridy = 1;
+	contrainte.gridy = 2;
 	contrainte.gridwidth = 1;
 	add(labelTitre,contrainte);
 	contrainte.gridx = 1;
-	contrainte.gridy = 1;
+	contrainte.gridy = 2;
 	contrainte.gridwidth = 6;
 	add(zoneTitre,contrainte);
 	
-	// 3e rang : lieu
-	labelLieu = new JLabel("Lieu");
+	// 4e rang : lieu
+	labelLieu = new JLabel("Lieu :");
 	contrainte.gridx = 0;
-	contrainte.gridy = 2;
+	contrainte.gridy = 3;
 	contrainte.gridwidth = 1;
 	add(labelLieu,contrainte);
 	contrainte.gridx = 1;
-	contrainte.gridy = 2;
+	contrainte.gridy = 3;
 	contrainte.gridwidth = 6;
 	add(zoneLieu,contrainte);
 	
-	//4eme rang : description
-	labelDescription = new JLabel("Description");
+	//5eme rang : description
+	labelDescription = new JLabel("Description :");
 	contrainte.gridx = 0;
-	contrainte.gridy = 5;
+	contrainte.gridy = 6;
 	contrainte.gridwidth = 1;
 	add(labelDescription,contrainte);
 	contrainte.gridx = 0;
-	contrainte.gridy = 6;
+	contrainte.gridy = 7;
 	contrainte.gridwidth = 6;
 	add(scrollPane,contrainte);
 	
+	contrainte.gridx = 0;
+	contrainte.gridy = 8;
+	contrainte.gridwidth = 6;
+	add(ajoutEvt,contrainte);
+	
 	ajoutImg.addActionListener(this);
+	ajoutEvt.addActionListener(this);
 	
 	}
 
@@ -109,27 +127,51 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 		String nom = choix.getSelectedFile().getName();
 		// chemin absolu du fichier choisi
 		String chemin = choix.getSelectedFile().getAbsolutePath();
-		JLabel logo = new JLabel( new ImageIcon(chemin));
-			if(chemin==null)
-			{
-				this.add(ajoutImg);
-			}
-			else
-			{
-				this.add(logo);
-			}
+		//logo.add(new ImageIcon(chemin));
+		
+
 		return chemin;
+				
+		
+		
 		}
 		else {
 		return null;// L'utilisateur ne veut finalement pas importer d'item
 		}
+		
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent parEvt) {
 		if (parEvt.getSource()==ajoutImg)
 		{
-			File image = new File(importImage());
+			cheminCourant=importImage();
+			ajoutImg.setText(cheminCourant);
+			
+			
+		}	
+		
+		if (parEvt.getSource()==ajoutEvt)
+		{
+			String titre = zoneTitre.getText();
+			String lieu = zoneLieu.getText();
+			int jour = Integer.parseInt(zoneJour.getText());
+			int mois = Integer.parseInt(zoneMois.getText());
+			int annee = Integer.parseInt(zoneAnnee.getText());
+			Date date = new Date(jour, mois, annee);
+			String Textdescription = description.getText();
+			String ch = chrono.getSelectedItem().toString();
+			Evt evenement = new Evt (date ,titre, lieu, cheminCourant, Textdescription, ch);
+			this.setVisible(false);
+			zoneTitre.setText("");
+			zoneLieu.setText("");
+			zoneJour.setText("");
+			zoneMois.setText("");
+			zoneAnnee.setText("");
+			description.setText("");
+			
+			
 		}
 
 	}
