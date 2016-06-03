@@ -74,7 +74,7 @@ public class Frise {
 			texte.println(chLieu);
 			texte.println(chImage);
 			texte.println(chDescription);
-			texte.println("");
+			texte.println(""); 
 			
 		}
 		catch(IOException e){
