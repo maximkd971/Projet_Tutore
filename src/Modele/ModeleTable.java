@@ -2,13 +2,24 @@ package Modele;
 
 import java.util.*;
 
+
 //import Vu.*;
 //import Fichier.*;
 
 import javax.swing.table.*;
+
+/**
+ * 
+ * @author Maxim
+ *
+ */
 public class ModeleTable extends DefaultTableModel
 {
-	
+	int chAnneeDebut;
+	int chAnneeFin;
+/**
+ * Crée un modèle de table par défaut à partir du tableau de String An
+ */
 	public ModeleTable()
 	{
 		int An = Constantes.An.length;
@@ -19,7 +30,7 @@ public class ModeleTable extends DefaultTableModel
 		for(int i=0;i<An;i++)
 		{
 			titre[i]=Constantes.An[i];
-			System.out.println(titre[i]);
+			
 
 		}
 		setColumnIdentifiers(titre);
@@ -28,4 +39,6 @@ public class ModeleTable extends DefaultTableModel
 		//setValueAt(evt.getTitre(),i,evt.getDate().getJour()-1);
 		
 	}
+	
+
 }

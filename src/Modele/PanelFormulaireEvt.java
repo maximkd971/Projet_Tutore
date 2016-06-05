@@ -4,7 +4,11 @@ import javax.swing.*;
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
-
+/**
+ * 
+ * @author Maxim
+ *
+ */
 public class PanelFormulaireEvt extends JDialog implements Serializable,ActionListener{
 	private static final long serialVersionUID = 1L;
 	static JLabel labelDate;
@@ -33,7 +37,10 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	private JComboBox <String> chrono = new JComboBox <String> (nomFichier);
 	private String cheminCourant;
 	
-	
+	/**
+	 * Construit le formulaire qui permet d'ajouter des évènements.
+	 * Mis en place avec un GridBagLayout.
+	 */
 	public PanelFormulaireEvt()
 	{
 	this.setBackground(new Color(100,200,240));
@@ -117,7 +124,11 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	
 	}
 
-
+/**
+ * Ouvre un fenetre en popup qui permet de choisir une image ce trouvant sur le PC
+ * @return le chemin de l'image si on en a sélectionner une 
+ * @return null si jamais on en a pas choisis
+ */
 	public String importImage() {
 		JFileChooser choix = new JFileChooser();
 		int retour = choix.showOpenDialog(null); // Ouvre un PopUp
@@ -142,8 +153,13 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 		
 	}
 
-	@Override
+
+	 
 	public void actionPerformed(ActionEvent parEvt) {
+		/**
+		 * si on clique sur le bouton il utilise la fonction import image.
+		 * Il échange le texte du bouton avec celui de l'image pour confirmer qu'on a choisis une image
+		 */
 		if (parEvt.getSource()==ajoutImg)
 		{
 			cheminCourant=importImage();
@@ -151,7 +167,11 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 			
 			
 		}	
-		
+		/**
+		 * Récupère les paramètres de l'évènement.
+		 * Ecris les paramètres de l'évènement dans un fichier.
+		 * Puis remet les label du formulaire à "".
+		 */
 		if (parEvt.getSource()==ajoutEvt)
 		{
 			String titre = zoneTitre.getText();
@@ -170,6 +190,7 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 			zoneMois.setText("");
 			zoneAnnee.setText("");
 			description.setText("");
+			
 			
 			
 		}

@@ -5,10 +5,21 @@ import javax.swing.*;
 import Modele.Constantes;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
  
-public class Fenetre_Mere extends JFrame
-{public Fenetre_Mere(String parTitre)
+/**
+ * 
+ * @author Maxim
+ *
+ */
+public class Fenetre_Mere extends JFrame 
+{
+
+/***
+ * Permet de créer la fenetre ainsi que la barre de menu.
+ * @param parTitre
+ */
+public Fenetre_Mere(String parTitre)
     {super(parTitre);
     PanelFils contentPane=new PanelFils();
 	setContentPane(contentPane);
@@ -31,6 +42,8 @@ public class Fenetre_Mere extends JFrame
     JMenu Affiche = new JMenu("Fichier Existant");
     menuAfficher.add(Affiche);
     Affiche.add(Bouton);
+   
+  
     
    
     	
@@ -74,7 +87,7 @@ public class Fenetre_Mere extends JFrame
     JMenuItem Quitter = new JMenuItem("Quitter");
     menuQuitter.add(Quitter);
     Quitter.addActionListener(contentPane);
-    Quitter.setActionCommand("kk");
+    Quitter.setActionCommand("Quitter");
     Quitter.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK));
     menuBar.add(menuCreation);
     menuBar.add(menuAfficher);
@@ -85,9 +98,17 @@ public class Fenetre_Mere extends JFrame
     
     }
  
- 
-public static void main(String[] args)
+ /**
+  * Création de la fenetre mère.
+  * @param arg0
+  */
+public static void main(String[] arg0)
     {new Fenetre_Mere("Fenetre Mere");
    
     }//main()
+
+
+
+	
+
 }//FenetreMere

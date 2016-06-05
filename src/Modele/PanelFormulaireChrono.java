@@ -11,15 +11,27 @@ import java.awt.Insets;
 import java.awt.event.*;
 
 import javax.swing.*;
+/**
+ * 
+ * @author Maxim
+ *
+ */
 public class PanelFormulaireChrono extends JDialog implements ActionListener{
 
 	private JLabel labelTitre; 
 	private JLabel labelAnneeDebut;
 	private JLabel labelAnneeFin;
+	private JLabel labelChoix;
 	private static JTextField zoneTitre = new JTextField(10);
 	private static  JTextField AnneeDebut = new JTextField(10);
 	private static JTextField AnneeFin = new JTextField(10);
 	private JButton Ajouter;
+	String[]nomFichier = Constantes.ListeFichier();
+	private JComboBox <String> chrono = new JComboBox <String> (nomFichier);
+
+	/**
+	 * Crée le formulaire pour ajouter une chronologie.
+	 */
 	public PanelFormulaireChrono(){
 		
 		this.setBackground(new Color(100,200,240));
@@ -70,10 +82,16 @@ public class PanelFormulaireChrono extends JDialog implements ActionListener{
 		contrainte.gridwidth = 4;
 		add(Ajouter,contrainte);
 		Ajouter.addActionListener(this);
+		
+		
 	}
 	@Override
 	public void actionPerformed(ActionEvent parEvt) {
 		// TODO Auto-generated method stub
+		/**
+		 * On récupère les paramètres de la chronologie.
+		 * Puis on crée un fichier et on écrit les paramètres dedans .
+		 */
 		if (parEvt.getSource()==Ajouter)
 		{
 			String titre = zoneTitre.getText();

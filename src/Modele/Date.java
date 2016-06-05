@@ -6,13 +6,22 @@ package Modele;
 import java.util.*;
 import java.util.GregorianCalendar;
 
-
+/**
+ * 
+ * @author Maxim
+ *
+ */
 public class Date {
 	private int chJour;//declaration des champs
 	 int chMois;
 	 int chAn;
 	 int chJourSemaine;
-
+/**
+ * Crée un date
+ * @param parJour
+ * @param parMois
+ * @param parAn
+ */
  public Date(int parJour, int parMois, int parAn)
 	{
 	    chJour=parJour;
@@ -20,43 +29,20 @@ public class Date {
 	    chAn=parAn;
 	  
 	}
-
+/**
+ * Change les int en String
+ */
 	public String toString()
 	{
 	    return(chJour+"/"+chMois+"/"+chAn);
 	}
 	 
-	public int dernierJourDuMois(int i,int an)
-	{
-	    switch(i)
-	    {
-	        case 4:
-	        case 6:
-	        case 9:
-	        case 11:
-	            return 30;
-	        default:
-	            return 31;
-	        case 2:
-	            if((an%4==0 && an%100!=0)||(an%400==0))
-	                return 29;
-	            else return 28;
-	    }
+	
 
-	}
-
-	/*public boolean estValide()
-	{
-	    if(chAn<1582)
-	        return false;
-	    if(chMois<1 || chMois>12)
-	        return  false;
-	    if(chJour<1 || chJour>dernierJourDuMois())
-	        return false;
-	    return true;
-	}*/
-
-
+	
+	/**
+	 * Crée un date
+	 */
 	public Date()
 	{
 	    GregorianCalendar today = new GregorianCalendar();
@@ -66,38 +52,35 @@ public class Date {
 	    chJourSemaine = today.get(Calendar.DAY_OF_WEEK);		
 	}
 	
-	public int precede (Date parDate)
-	{
-		if (chJour==parDate.chJour)
-			return 0;
-			
-		if (chJour<parDate.chJour)
-		return +1;
-		
-		if (chJour>parDate.chJour)
-		return -1;
-		
-		else
-		{
-			return 0;
-		}
-	}
-	/*public static Date lire Date()
-	{
-		
-	}*/
-
+	/**
+	 * récupérer l'année
+	 * @return chAn
+	 */
 	public int getAn() {
 		return chAn;
 	}
 
+	/**
+	 * Récuperer le mois
+	 * @return chMois
+	 */
 	public int getMois() {
 		return chMois;
 	}
+	
+	/**
+	 * Récuperer le jour
+	 * @return chJour
+	 */
 	public int getJour()
 	{
 		return chJour;
 	}
+	
+	/**
+	 * Récuperer le jour de la  semaine
+	 * @return chJourSemaine
+	 */
 	public int getJourSemaine()
 	{
 		return chJourSemaine;

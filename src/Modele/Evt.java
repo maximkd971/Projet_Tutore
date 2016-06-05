@@ -58,7 +58,7 @@ public class Evt
 				return 1;
 			if(chTitre.compareTo(parEvt.chTitre)<0)
 				return -1;
-			return chDate.precede(parEvt.chDate);		
+			//return chDate.precede(parEvt.chDate);		
 		}
 		return 0;
 	}
