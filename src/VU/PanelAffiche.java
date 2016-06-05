@@ -4,7 +4,7 @@ package VU;
 
 import javax.swing.*;
 
-import Modele.Agenda;
+
 import Modele.Date;
 import Modele.Evt;
 import Modele.ModeleTable;

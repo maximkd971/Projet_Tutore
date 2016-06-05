@@ -31,7 +31,7 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	private JScrollPane scrollPane = new JScrollPane(description);
 	private JButton ajoutImg = new JButton ("Image");
 	private JButton ajoutEvt = new JButton ("+");
-	public static Agenda agenda = new Agenda();
+	
 	static Date date =new Date();
 	String[]nomFichier = Constantes.ListeFichier();
 	private JComboBox <String> chrono = new JComboBox <String> (nomFichier);
