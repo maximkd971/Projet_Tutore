@@ -17,16 +17,7 @@ public class Evt
 	private String chDescription;
 	private String nomFrise;
 	
-//	public Evt (Date parDate,String parTitre,String parLieu, String parImage ,String parDescription , String parFrise)
-//	{
-//		chDate = parDate;
-//		chTitre = parTitre;
-//		chLieu = parLieu;
-//		chImage = parImage;
-//		chDescription = parDescription;
-//		nomFrise= parFrise;
-//		Frise.creeFichier();
-//	}
+
 	public String toString()
 	{
 		return(chDate.toString()+","+chTitre+","+chLieu+","+chDescription + chImage);

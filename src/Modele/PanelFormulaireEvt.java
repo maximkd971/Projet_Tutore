@@ -42,6 +42,7 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	 * Construit le formulaire qui permet d'ajouter des évènements.
 	 * Mis en place avec un GridBagLayout.
 	 */
+	
 	public PanelFormulaireEvt()
 	{
 	this.setBackground(new Color(100,200,240));
@@ -126,11 +127,14 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	
 	}
 
-/**
- * Ouvre un fenetre en popup qui permet de choisir une image ce trouvant sur le PC
- * @return le chemin de l'image si on en a sélectionner une 
- * @return null si jamais on en a pas choisis
- */
+
+
+	/**
+	 * Sert a récuperer le chemin d'une image que l'on veut associer a un évènement
+	 * @return le chemin de l'image choisis
+	 * @return null si on a pas choissi d'image
+	 */
+
 	public String importImage() {
 		JFileChooser choix = new JFileChooser();
 		int retour = choix.showOpenDialog(null); 
@@ -150,8 +154,10 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	 
 	public void actionPerformed(ActionEvent parEvt) {
 		/**
+
 		 * si on clique sur le bouton il utilise la fonction import image.
 		 * Il échange le texte du bouton avec celui de l'image pour confirmer qu'on a choisis une image
+
 		 */
 		if (parEvt.getSource()==ajoutImg)
 		{
@@ -160,10 +166,12 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 			
 			
 		}	
+
 		/**
 		 * Récupère les paramètres de l'évènement.
 		 * Ecris les paramètres de l'évènement dans un fichier.
 		 * Puis remet les label du formulaire à "".
+
 		 */
 		if (parEvt.getSource()==ajoutEvt)
 		{

@@ -15,11 +15,13 @@ import javax.swing.table.*;
  */
 public class ModeleTable extends DefaultTableModel
 {
+
 	int chAnneeDebut;
 	int chAnneeFin;
 /**
  * Crée un modèle de table par défaut à partir du tableau de String An
  */
+
 	public ModeleTable()
 	{
 		int An = Constantes.An.length;

@@ -23,6 +23,7 @@ public class Fenetre_Mere extends JFrame
 {
 	private static String[]nomFichier = Constantes.ListeFichier();
 	static JComboBox <String> Bouton =new JComboBox<String>(nomFichier);
+
 	/***
 	 * Permet de créer la fenetre ainsi que la barre de menu.
 	 * @param parTitre
@@ -91,7 +92,7 @@ public class Fenetre_Mere extends JFrame
 	    JMenuItem Quitter = new JMenuItem("Quitter");
 	    menuQuitter.add(Quitter);
 	    Quitter.addActionListener(contentPane);
-	    Quitter.setActionCommand("kk");
+	    Quitter.setActionCommand("quitter");
 	    Quitter.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, KeyEvent.CTRL_MASK));
 	    menuBar.add(menuCreation);
 	    menuBar.add(menuAfficher);

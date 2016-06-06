@@ -22,10 +22,10 @@ public class Frise {
 	
 	
 	/**
-	 * Constructeur de la méthode creeFichier().
-	 * @param titre 
-	 * @param anneeDebut 
-	 * @param anneeFin de 
+	 * Frise contenant juste les infos de la chronologie et crée le fichier ou l'on stocke ces infos
+	 * @param titre
+	 * @param anneeDebut
+	 * @param anneeFin
 	 */
 	public Frise (String titre, int anneeDebut, int anneeFin)
 	{
@@ -35,9 +35,9 @@ public class Frise {
 		creeFichier();
 		
 	}
-	
+
 	/**
-	 * Le constructeur de la méthode creeFichierEvt().
+	 * Frise contenant les infos de l'évènement et ajoute ces infos au fichier de chronologie choisis par l'utilisateur
 	 * @param parDate
 	 * @param parTitre
 	 * @param parLieu
@@ -58,7 +58,7 @@ public class Frise {
 	
 	/**
 	 * Permet de créer le fichier contenant les infos de la chronologie.
-	 */
+	*/
 	public void creeFichier(){
 		File fichier = new File("./"+chTitre+".txt");
 		if (fichier.exists())
@@ -89,9 +89,8 @@ public class Frise {
 	
 
 	/**
-	 * Permet d'ajouter les évènements à la chronologie choisie.
+	 * Permet d'ajouter un évènement a la chronologie chosie
 	 */
-	
 
 	public void creeFichierEvt()
 	{

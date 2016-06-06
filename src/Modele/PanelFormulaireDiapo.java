@@ -28,7 +28,10 @@ public class PanelFormulaireDiapo extends JPanel implements ActionListener
 	//private JTextArea description;
 
 	private BufferedReader reader;
-
+	/**
+	 * crée un panel contenant un cardLayout qui affiche les évènements d'une chronologie
+	 * @param nomFichier
+	 */
 	public PanelFormulaireDiapo(String nomFichier)
 	{
 		chNomFichier = nomFichier;
@@ -65,6 +68,11 @@ public class PanelFormulaireDiapo extends JPanel implements ActionListener
 	}	
 		
 	//lit le fichier et l'affiche dans le paneau au centre, en cas d'erreur envoie un message
+	/**
+	 * Lit le contenut d'un fichier ligne a ligne
+	 * @param file
+	 * @return les lignes du fichier
+	 */
 	public String readFile(String file)
 	{
 		String lines = "";

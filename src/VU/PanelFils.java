@@ -37,7 +37,9 @@ public class PanelFils extends JPanel implements ActionListener
 	//PanelFormulaireDiapo panDiapo = new PanelFormulaireDiapo();
 	private String bouton;
 	/**
-	 * Ajoute tout les panneaux intermédiares à la fenetre mère.
+
+	 * Ajoute a la fenetre mère les panneau intermédiaire et les fenetre de dialogue
+
 	 */
 	public PanelFils()
 		{
@@ -58,7 +60,10 @@ public class PanelFils extends JPanel implements ActionListener
 		/**
 		 * Ouvre une fenetre lorque l'on clique sur le bouton quitter pour confirmer ou annuler la fermeture de la fentre.
 		 */
-		if (actionCommand.equals("Quitter"))
+		
+
+		if (actionCommand.equals("quitter"))
+
 		{
 			int saisi = JOptionPane.showConfirmDialog(this,"Êtes_vous sur de vouloir quitter ?", "QUITTER",JOptionPane.OK_CANCEL_OPTION,JOptionPane.CANCEL_OPTION, null);
 			switch(saisi)
@@ -71,8 +76,11 @@ public class PanelFils extends JPanel implements ActionListener
 					break;
 			}
 		}
+
+		
 		/**
-		 * Crée un nouveau PanelFormulaireEvt() lorsque l'on veut ajouter un évènement.
+		 * ouvrir un formulaire pour l'ajout d'un évènement
+
 		 */
 		if (actionCommand.equals("Ajout"))
 		{
@@ -81,13 +89,16 @@ public class PanelFils extends JPanel implements ActionListener
 		}
 		
 		/**
-		 *Crée un nouveau PAnelFormulaireChrono() lorsque l'on veut ajouter une nouvelle chronologie.
-		 */
+		 * ouvre le formulaire permettant d'ajouter une chronologie
+		*/
 		if (actionCommand.equals("AjoutChrono"))
 		{
 			PanelFormulaireChrono panChrono = new PanelFormulaireChrono();
 		}
 		
+		/**
+		 * ajoute le cardLayout
+		 */
 		if (parEvt.getSource()==ok)
 		{
 			String choisis = fichier.getSelectedItem().toString();
@@ -96,6 +107,10 @@ public class PanelFils extends JPanel implements ActionListener
 			ok.setVisible(false);
 			this.add(panDiapo, BorderLayout.CENTER);
 		}
+		
+		/**
+		 * choisir la chronologie a afficher
+		 */
 		if(actionCommand.equals("afficher"))
 		{
 			

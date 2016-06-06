@@ -19,8 +19,12 @@ import java.awt.*;
  */
 public class PanelAffiche extends JPanel
 {
+
 	int AnneeDebut;
 	int AnneeFin;
+
+
+
 	private JTable chTable = new JTable();
 	static Date date =new Date();
 	/**
@@ -47,6 +51,5 @@ public class PanelAffiche extends JPanel
 		contrainte.gridwidth=100;
 		add(scroll,contrainte);
 	}
-	
 	
 }
