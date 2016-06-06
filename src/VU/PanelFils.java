@@ -3,24 +3,30 @@ package VU;
 import javax.swing.*;
 
 import Modele.PanelFormulaireChrono;
+import Modele.PanelFormulaireDiapo;
 import Modele.PanelFormulaireEvt;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PanelFils extends JPanel implements ActionListener {
+public class PanelFils extends JPanel implements ActionListener 
+	{
 
-		JLabel chrono = new JLabel();
-		PanelAffiche panEvt = new PanelAffiche();
-		//PanelFormulaireEvt panForm = new PanelFormulaireEvt();
-		BorderLayout layout = new BorderLayout();
-		public PanelFils(){
+	JLabel chrono = new JLabel();
+	PanelAffiche panEvt = new PanelAffiche();
+	//PanelFormulaireEvt panForm = new PanelFormulaireEvt();
+	BorderLayout layout = new BorderLayout();
+	PanelFormulaireDiapo panDiapo = new PanelFormulaireDiapo();
+	
+	public PanelFils()
+		{
 			this.setLayout(layout);
 			this.add(chrono, BorderLayout.NORTH);
-			this.add(panEvt,BorderLayout.CENTER);
-			
-			//this.add(panForm, BorderLayout.NORTH);
+			this.add(panEvt,BorderLayout.SOUTH);
+			this.add(panDiapo, BorderLayout.CENTER);
+		
+		//this.add(panForm, BorderLayout.NORTH);
 		}
 
 	@Override

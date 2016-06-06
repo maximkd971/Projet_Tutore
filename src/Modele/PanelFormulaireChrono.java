@@ -11,7 +11,8 @@ import java.awt.Insets;
 import java.awt.event.*;
 
 import javax.swing.*;
-public class PanelFormulaireChrono extends JDialog implements ActionListener{
+public class PanelFormulaireChrono extends JDialog implements ActionListener
+{
 
 	private JLabel labelTitre; 
 	private JLabel labelAnneeDebut;
@@ -20,7 +21,9 @@ public class PanelFormulaireChrono extends JDialog implements ActionListener{
 	private static  JTextField AnneeDebut = new JTextField(10);
 	private static JTextField AnneeFin = new JTextField(10);
 	private JButton Ajouter;
-	public PanelFormulaireChrono(){
+	
+	public PanelFormulaireChrono()
+	{
 		
 		this.setBackground(new Color(100,200,240));
 		this.setVisible(true);this.setSize(400,500);
@@ -72,8 +75,11 @@ public class PanelFormulaireChrono extends JDialog implements ActionListener{
 		Ajouter.addActionListener(this);
 	}
 	@Override
-	public void actionPerformed(ActionEvent parEvt) {
+	
+	public void actionPerformed(ActionEvent parEvt) 
+	{
 		// TODO Auto-generated method stub
+		
 		if (parEvt.getSource()==Ajouter)
 		{
 			String titre = zoneTitre.getText();

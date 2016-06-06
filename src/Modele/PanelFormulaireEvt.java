@@ -17,12 +17,13 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	private JLabel labelDescription;
 	private JLabel labelChoix;
 	private String cheminTest;
+	
 	//les zones de saisie ou d'affichage 
 	private JTextField zoneLieu = new JTextField(10);
 	private JTextField zoneTitre = new JTextField(10);
-	private JTextField zoneJour = new JTextField(1);
-	private JTextField zoneMois = new JTextField(1);
-	private JTextField zoneAnnee = new JTextField(4);
+	private JTextField zoneJour = new JTextField("JJ");
+	private JTextField zoneMois = new JTextField("MM");
+	private JTextField zoneAnnee = new JTextField("AAAA");
 	private JTextArea description = new JTextArea(10,10);
 	private JScrollPane scrollPane = new JScrollPane(description);
 	private JButton ajoutImg = new JButton ("Image");
@@ -47,7 +48,8 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	contrainte.insets = new Insets(10,10,10,10);
 	contrainte.fill = GridBagConstraints.BOTH;
 	
-	contrainte.gridx = 3;	// 1e rang
+	// 1e rang
+	contrainte.gridx = 3;	
 	contrainte.gridy = 0;
 	contrainte.gridwidth=2;
 	add(chrono,contrainte);
@@ -57,8 +59,8 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	contrainte.gridwidth=1;
 	add(labelChoix , contrainte);
 	
-	
-	contrainte.gridx = 0;	//2eme rang
+	//2eme rang
+	contrainte.gridx = 0;	
 	contrainte.gridy = 1;
 	contrainte.gridwidth = 1;
 	add(zoneJour,contrainte);
@@ -68,7 +70,7 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	add(zoneMois,contrainte);
 	contrainte.gridx = 2;	
 	contrainte.gridy = 1;
-	contrainte.gridwidth = 2;
+	contrainte.gridwidth = 1;
 	add(zoneAnnee,contrainte);
 	contrainte.gridwidth = 1;
 	contrainte.gridx = 4;
