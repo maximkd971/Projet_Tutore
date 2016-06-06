@@ -1,5 +1,9 @@
-package Modele;
+package VU;
 import javax.swing.*;
+
+import Modele.Constantes;
+import Modele.Date;
+import Modele.Frise;
 
 import java.io.*;
 import java.awt.*;

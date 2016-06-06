@@ -3,9 +3,6 @@ package VU;
 import javax.swing.*;
 
 import Modele.Constantes;
-import Modele.PanelFormulaireChrono;
-import Modele.PanelFormulaireDiapo;
-import Modele.PanelFormulaireEvt;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,11 +13,6 @@ import java.awt.event.ActionListener;
  * @author Maxim
  *
  */
-
-		
-		
-		
-
 public class PanelFils extends JPanel implements ActionListener 
 	{
 
@@ -80,7 +72,6 @@ public class PanelFils extends JPanel implements ActionListener
 		
 		/**
 		 * ouvrir un formulaire pour l'ajout d'un évènement
-
 		 */
 		if (actionCommand.equals("Ajout"))
 		{
@@ -106,6 +97,7 @@ public class PanelFils extends JPanel implements ActionListener
 			fichier.setVisible(false);
 			ok.setVisible(false);
 			this.add(panDiapo, BorderLayout.CENTER);
+			setVisible(true);
 		}
 		
 		/**
@@ -120,6 +112,7 @@ public class PanelFils extends JPanel implements ActionListener
 		 	fichier.setVisible(true);
 			ok.setVisible(true);
 		 	panDiapo.setVisible(false);
+		 	setVisible(true);
 		 	
 		}
 		

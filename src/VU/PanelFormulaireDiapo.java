@@ -1,4 +1,4 @@
-package Modele;
+package VU;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

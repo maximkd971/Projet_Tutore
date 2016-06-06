@@ -95,7 +95,7 @@ public class Frise {
 	public void creeFichierEvt()
 	{
 
-		File fichier = new File("./FichierChrono/"+nomFrise);
+		File fichier = new File("./"+nomFrise);
 		try (PrintWriter texte = new PrintWriter(new FileOutputStream(fichier , true)))
 		{
 		

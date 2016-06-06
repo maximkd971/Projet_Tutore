@@ -24,7 +24,7 @@ public class Fenetre_Mere extends JFrame
 	private static String[]nomFichier = Constantes.ListeFichier();
 	static JComboBox <String> Bouton =new JComboBox<String>(nomFichier);
 
-	/***
+	/**
 	 * Permet de créer la fenetre ainsi que la barre de menu.
 	 * @param parTitre
 	 */
