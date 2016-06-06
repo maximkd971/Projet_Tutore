@@ -22,6 +22,8 @@ public class PanelFils extends JPanel implements ActionListener
  	
 	//PanelFormulaireEvt panForm = new PanelFormulaireEvt();
 	BorderLayout layout = new BorderLayout();
+	
+	PanelFormulaireDiapo panDiapo; 
 	//PanelFormulaireDiapo panDiapo = new PanelFormulaireDiapo();
 	private String bouton;
 	public PanelFils()
@@ -62,24 +64,26 @@ public class PanelFils extends JPanel implements ActionListener
 			PanelFormulaireChrono panChrono = new PanelFormulaireChrono();
 		}
 		
-		
+		if (parEvt.getSource()==ok)
+		{
+			String choisis = fichier.getSelectedItem().toString();
+			panDiapo = new PanelFormulaireDiapo(choisis);
+			fichier.setVisible(false);
+			ok.setVisible(false);
+			this.add(panDiapo, BorderLayout.CENTER);
+		}
 		if(actionCommand.equals("afficher"))
 		{
 			
 		 	this.add(fichier, BorderLayout.NORTH);
 		 	this.add(ok, BorderLayout.CENTER);
 		 	ok.addActionListener(this);
-		 	
+		 	fichier.setVisible(true);
+			ok.setVisible(true);
+		 	panDiapo.setVisible(false);
 		 	
 		}
-		if (parEvt.getSource()==ok)
-		{
-			String choisis = fichier.getSelectedItem().toString();
-			PanelFormulaireDiapo panDiapo = new PanelFormulaireDiapo(choisis);
-			fichier.setVisible(false);
-			ok.setVisible(false);
-			this.add(panDiapo, BorderLayout.CENTER);
-		}
+		
 				
 	}
 		
