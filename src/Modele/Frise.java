@@ -60,7 +60,7 @@ public class Frise {
 	 * Permet de créer le fichier contenant les infos de la chronologie.
 	 */
 	public void creeFichier(){
-		File fichier = new File("./FichierChrono/"+chTitre+".txt");
+		File fichier = new File("./"+chTitre+".txt");
 		if (fichier.exists())
 		{
 			try {
@@ -87,10 +87,15 @@ public class Frise {
 	
 	}
 	
+
 	/**
 	 * Permet d'ajouter les évènements à la chronologie choisie.
 	 */
-	public void creeFichierEvt(){
+	
+
+	public void creeFichierEvt()
+	{
+
 		File fichier = new File("./FichierChrono/"+nomFrise);
 		try (PrintWriter texte = new PrintWriter(new FileOutputStream(fichier , true)))
 		{

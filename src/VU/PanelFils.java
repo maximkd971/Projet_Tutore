@@ -2,35 +2,55 @@ package VU;
 
 import javax.swing.*;
 
+import Modele.Constantes;
 import Modele.PanelFormulaireChrono;
+import Modele.PanelFormulaireDiapo;
 import Modele.PanelFormulaireEvt;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 /**
  * 
  * @author Maxim
  *
  */
-public class PanelFils extends JPanel implements ActionListener {
 
-		JLabel chrono = new JLabel();
-		PanelAffiche panEvt = new PanelAffiche();
-		//PanelFormulaireEvt panForm = new PanelFormulaireEvt();
-		BorderLayout layout = new BorderLayout();
 		
-		/**
-		 * Ajoute tout les panneaux intermédiares à la fenetre mère.
-		 */
-		public PanelFils(){
+		
+		
+
+public class PanelFils extends JPanel implements ActionListener 
+	{
+
+	//JLabel chrono = new JLabel();
+	PanelAffiche panEvt = new PanelAffiche();
+	private JButton ok = new JButton("ok");
+	private String[]nomFichier = Constantes.ListeFichier();
+ 	private JComboBox <String> fichier = new JComboBox <String> (nomFichier);
+ 	
+	//PanelFormulaireEvt panForm = new PanelFormulaireEvt();
+	BorderLayout layout = new BorderLayout();
+	
+	PanelFormulaireDiapo panDiapo; 
+	//PanelFormulaireDiapo panDiapo = new PanelFormulaireDiapo();
+	private String bouton;
+	/**
+	 * Ajoute tout les panneaux intermédiares à la fenetre mère.
+	 */
+	public PanelFils()
+		{
+
 			this.setLayout(layout);
-			this.add(chrono, BorderLayout.NORTH);
-			this.add(panEvt,BorderLayout.CENTER);
-			
-			//this.add(panForm, BorderLayout.NORTH);
+			//this.add(chrono, BorderLayout.NORTH);
+			this.add(panEvt,BorderLayout.SOUTH);
+			//this.add(panDiapo, BorderLayout.CENTER);
+		
+		//this.add(panForm, BorderLayout.NORTH);
 		}
 
+	
 	@Override
 	public void actionPerformed(ActionEvent parEvt)
 	{
@@ -66,6 +86,26 @@ public class PanelFils extends JPanel implements ActionListener {
 		if (actionCommand.equals("AjoutChrono"))
 		{
 			PanelFormulaireChrono panChrono = new PanelFormulaireChrono();
+		}
+		
+		if (parEvt.getSource()==ok)
+		{
+			String choisis = fichier.getSelectedItem().toString();
+			panDiapo = new PanelFormulaireDiapo(choisis);
+			fichier.setVisible(false);
+			ok.setVisible(false);
+			this.add(panDiapo, BorderLayout.CENTER);
+		}
+		if(actionCommand.equals("afficher"))
+		{
+			
+		 	this.add(fichier, BorderLayout.NORTH);
+		 	this.add(ok, BorderLayout.CENTER);
+		 	ok.addActionListener(this);
+		 	fichier.setVisible(true);
+			ok.setVisible(true);
+		 	panDiapo.setVisible(false);
+		 	
 		}
 		
 				
