@@ -34,7 +34,9 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	private JComboBox <String> chrono = new JComboBox <String> (nomFichier);
 	private String cheminCourant;
 	
-	
+	/**
+	 * Affiche le formulaire qui permet d'ajouter un évènement dans une chronologie.
+	 */
 	public PanelFormulaireEvt()
 	{
 	this.setBackground(new Color(100,200,240));
@@ -119,7 +121,11 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 	
 	}
 
-
+	/**
+	 * Sert a récuperer le chemin d'une image que l'on veut associer a un évènement
+	 * @return le chemin de l'image choisis
+	 * @return null si on a pas choissi d'image
+	 */
 	public String importImage() {
 		JFileChooser choix = new JFileChooser();
 		int retour = choix.showOpenDialog(null); 
@@ -137,6 +143,9 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 
 	@Override
 	public void actionPerformed(ActionEvent parEvt) {
+		/**
+		 * si on clique sur le bouton image on récupère le chemin et on l'affiche a la place du texte de l'image
+		 */
 		if (parEvt.getSource()==ajoutImg)
 		{
 			cheminCourant=importImage();
@@ -145,6 +154,9 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 			
 		}	
 		
+		/**
+		 * Ajoute un évènement a un fichier contenant déja une chronologie.
+		 */
 		if (parEvt.getSource()==ajoutEvt)
 		{
 			String titre = zoneTitre.getText();

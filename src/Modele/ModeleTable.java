@@ -8,7 +8,9 @@ import java.util.*;
 import javax.swing.table.*;
 public class ModeleTable extends DefaultTableModel
 {
-	
+	/**
+	 * Crée un type de table par défaut
+	 */
 	public ModeleTable()
 	{
 		int An = Constantes.An.length;

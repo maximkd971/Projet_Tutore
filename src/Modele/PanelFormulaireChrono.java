@@ -21,7 +21,9 @@ public class PanelFormulaireChrono extends JDialog implements ActionListener
 	private static  JTextField AnneeDebut = new JTextField(10);
 	private static JTextField AnneeFin = new JTextField(10);
 	private JButton Ajouter;
-	
+	/**
+	 * Affiche un panel qui permet d'ajouter une chronologie
+	 */
 	public PanelFormulaireChrono()
 	{
 		
@@ -79,7 +81,9 @@ public class PanelFormulaireChrono extends JDialog implements ActionListener
 	public void actionPerformed(ActionEvent parEvt) 
 	{
 		// TODO Auto-generated method stub
-		
+		/**
+		 * crée le fichier contenant les infos de la chronologies
+		 */
 		if (parEvt.getSource()==Ajouter)
 		{
 			String titre = zoneTitre.getText();
