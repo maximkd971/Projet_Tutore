@@ -7,12 +7,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 import javax.swing.*;
-
+/**
+ * 
+ * @author Kwadjo
+ *
+ */
 public class PanelFormulaireDiapo extends JPanel implements ActionListener
 {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
 	CardLayout gestionnaireDevenement = new CardLayout(10,10);
@@ -22,15 +24,17 @@ public class PanelFormulaireDiapo extends JPanel implements ActionListener
 	JPanel panSuivant = new JPanel();
 	JPanel panDiapositive = new JPanel();
 	JLabel evenement[] = new JLabel[10];
+	String chNomFichier;
 	//private JTextArea description;
 
 	private BufferedReader reader;
 
-	public PanelFormulaireDiapo()
+	public PanelFormulaireDiapo(String nomFichier)
 	{
+		chNomFichier = nomFichier;
 		//transforme les fichiers en JLabel
-		JLabel description = new JLabel(readFile("blabla.txt"));
-		JLabel description2 = new JLabel(readFile("blabla2.txt"));
+		JLabel description = new JLabel(readFile(nomFichier));
+		
 		
 		
 		//définit un borderlayout pour l'affichage du diapo
@@ -44,12 +48,14 @@ public class PanelFormulaireDiapo extends JPanel implements ActionListener
 		
 		//le panel au centre sera un cardlayout
 		panDiapositive.setLayout(gestionnaireDevenement);
-		
+		//for (int i =0 ; i<nomFichier.length; i++)
+		//{
+			
+		//}
 		panDiapositive.add(description, BorderLayout.EAST);
-		panDiapositive.add(description2, BorderLayout.EAST);
+		
 
 		evenement [0] = description;
-		evenement [1] = description2;
 		
 		//ajout des éléments à la fenêtre
 		this.add(precedent, BorderLayout.WEST);

@@ -10,6 +10,8 @@ import java.awt.event.KeyEvent;
  
 public class Fenetre_Mere extends JFrame
 {
+	private static String[]nomFichier = Constantes.ListeFichier();
+	static JComboBox <String> Bouton =new JComboBox<String>(nomFichier);
 	public Fenetre_Mere(String parTitre)
     {
 		super(parTitre);
@@ -18,8 +20,7 @@ public class Fenetre_Mere extends JFrame
 		contentPane.setBackground(new Color(100,200,240));
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setLocation(10,10);setSize(1200,700);
-	    String[]nomFichier = Constantes.ListeFichier();
-	    JComboBox <String> Bouton =new JComboBox<String>(nomFichier);
+	   
 	    JMenuBar menuBar= new JMenuBar();
 	    this.setJMenuBar(menuBar);
 	    
@@ -31,10 +32,12 @@ public class Fenetre_Mere extends JFrame
 	    JMenu menuAfficher = new JMenu("Afficher");
 	    menuAfficher.setMnemonic('A');
 	   
-	    JMenu Affiche = new JMenu("Fichier Existant");
+	    JMenuItem Affiche = new JMenuItem("Fichier Existant");
 	    menuAfficher.add(Affiche);
-	    Affiche.add(Bouton);
-	    
+	    Affiche.addActionListener(contentPane);
+	    Affiche.setActionCommand("afficher");
+	   
+	  
 	   
 
 	    JMenu menuQuitter = new JMenu("Quitter");

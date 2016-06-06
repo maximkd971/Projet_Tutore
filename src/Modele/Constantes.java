@@ -11,8 +11,8 @@ public class Constantes {
 		File fichiers = new File("./");
 		File[] listFiles = fichiers.listFiles();
 		String[] nomFichier = new String[listFiles.length];
-		
-		for (int i=0 ; i<listFiles.length; i++)
+		nomFichier[0]=null;
+		for (int i=1 ; i<listFiles.length; i++)
 		{
 			if(listFiles[i].isFile())
 			{

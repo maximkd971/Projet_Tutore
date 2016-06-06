@@ -2,6 +2,7 @@ package VU;
 
 import javax.swing.*;
 
+import Modele.Constantes;
 import Modele.PanelFormulaireChrono;
 import Modele.PanelFormulaireDiapo;
 import Modele.PanelFormulaireEvt;
@@ -13,22 +14,27 @@ import java.awt.event.ActionListener;
 public class PanelFils extends JPanel implements ActionListener 
 	{
 
-	JLabel chrono = new JLabel();
+	//JLabel chrono = new JLabel();
 	PanelAffiche panEvt = new PanelAffiche();
+	private JButton ok = new JButton("ok");
+	private String[]nomFichier = Constantes.ListeFichier();
+ 	private JComboBox <String> fichier = new JComboBox <String> (nomFichier);
+ 	
 	//PanelFormulaireEvt panForm = new PanelFormulaireEvt();
 	BorderLayout layout = new BorderLayout();
-	PanelFormulaireDiapo panDiapo = new PanelFormulaireDiapo();
-	
+	//PanelFormulaireDiapo panDiapo = new PanelFormulaireDiapo();
+	private String bouton;
 	public PanelFils()
 		{
 			this.setLayout(layout);
-			this.add(chrono, BorderLayout.NORTH);
+			//this.add(chrono, BorderLayout.NORTH);
 			this.add(panEvt,BorderLayout.SOUTH);
-			this.add(panDiapo, BorderLayout.CENTER);
+			//this.add(panDiapo, BorderLayout.CENTER);
 		
 		//this.add(panForm, BorderLayout.NORTH);
 		}
 
+	
 	@Override
 	public void actionPerformed(ActionEvent parEvt)
 	{
@@ -56,6 +62,24 @@ public class PanelFils extends JPanel implements ActionListener
 			PanelFormulaireChrono panChrono = new PanelFormulaireChrono();
 		}
 		
+		
+		if(actionCommand.equals("afficher"))
+		{
+			
+		 	this.add(fichier, BorderLayout.NORTH);
+		 	this.add(ok, BorderLayout.CENTER);
+		 	ok.addActionListener(this);
+		 	
+		 	
+		}
+		if (parEvt.getSource()==ok)
+		{
+			String choisis = fichier.getSelectedItem().toString();
+			PanelFormulaireDiapo panDiapo = new PanelFormulaireDiapo(choisis);
+			fichier.setVisible(false);
+			ok.setVisible(false);
+			this.add(panDiapo, BorderLayout.CENTER);
+		}
 				
 	}
 		

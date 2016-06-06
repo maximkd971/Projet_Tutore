@@ -122,20 +122,11 @@ public class PanelFormulaireEvt extends JDialog implements Serializable,ActionLi
 
 	public String importImage() {
 		JFileChooser choix = new JFileChooser();
-		int retour = choix.showOpenDialog(null); // Ouvre un PopUp
+		int retour = choix.showOpenDialog(null); 
 		if (retour == JFileChooser.APPROVE_OPTION) {
-		// un fichier a été choisi
-		// nom du fichier:
 		String nom = choix.getSelectedFile().getName();
-		// chemin absolu du fichier choisi
 		String chemin = choix.getSelectedFile().getAbsolutePath();
-		//logo.add(new ImageIcon(chemin));
-		
-
 		return chemin;
-				
-		
-		
 		}
 		else {
 		return null;// L'utilisateur ne veut finalement pas importer d'item
